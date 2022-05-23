@@ -3,7 +3,7 @@ include "Dependencies.lua"
 
 workspace "Hazel"
 	architecture "x86_64"
-	startproject "Hazelnut"
+	startproject "HazelCAD"
 
 	configurations
 	{
@@ -35,3 +35,4 @@ group ""
 include "Hazel"
 include "Sandbox"
 include "Hazelnut"
+include "HazelCAD"
