@@ -1,27 +1,27 @@
 #include <Hazel.h>
 #include <Hazel/Core/EntryPoint.h>
 
-#include "EditorLayer.h"
+#include "BaseLayer.h"
 
 namespace Hazel {
 
-	class Hazelnut : public Application
+	class HazelCAD : public Application
 	{
 	public:
-		Hazelnut(ApplicationCommandLineArgs args)
+		HazelCAD(ApplicationCommandLineArgs args)
 			: Application("HazelCAD", args)
 		{
-			PushLayer(new EditorLayer());
+			PushLayer(new BaseLayer());
 		}
 
-		~Hazelnut()
+		~HazelCAD()
 		{
 		}
 	};
 
 	Application* CreateApplication(ApplicationCommandLineArgs args)
 	{
-		return new Hazelnut(args);
+		return new HazelCAD(args);
 	}
 
 }

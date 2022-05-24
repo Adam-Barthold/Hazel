@@ -253,6 +253,14 @@ namespace Hazel {
 						HZ_CORE_WARN("This entity already has the Sprite Renderer Component!");
 					ImGui::CloseCurrentPopup();
 				}
+				if (ImGui::MenuItem("Circle Renderer"))
+				{
+					if (!m_SelectionContext.HasComponent<CircleRendererComponent>())
+						m_SelectionContext.AddComponent<CircleRendererComponent>();
+					else
+						HZ_CORE_WARN("This entity already has the Circle Renderer Component!");
+					ImGui::CloseCurrentPopup();
+				}
 
 			ImGui::EndPopup();
 		}
@@ -346,8 +354,12 @@ namespace Hazel {
 				}
 				ImGui::EndDragDropTarget();
 			}
+		});
 
-			ImGui::DragFloat("Tiling Factor", &component.TilingFactor, 0.1f, 0.0f, 100.0f);
+		DrawComponent<CircleRendererComponent>("Circle Renderer", entity, [](auto& component)
+		{
+			ImGui::ColorEdit4("Color", glm::value_ptr(component.Color));
+			ImGui::DragFloat("Thickness", &component.Thickness, 0.025f, 0.0f, 1.0f);
 		});
 
 	}
